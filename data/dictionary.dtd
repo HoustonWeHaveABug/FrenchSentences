@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY % grammaticalCategoryValues "(adjective|verb|commonNoun|functionWord|adverb|interjection|onomatopoeia)">
+<!ENTITY % grammaticalGenderValues "(feminine|masculine)">
+<!ENTITY % grammaticalNumberValues "(singular|plural)">
+<!ENTITY % moodValues "(conditional|imperative|indicative|infinitive|participle|subjunctive)">
+<!ENTITY % tenseValues "(future|imperfect|past|present|simplePast)">
+<!ENTITY % personValues "(firstPerson|secondPerson|thirdPerson)">
+<!ELEMENT lexicalDatabase (lexicalEntry*)>
+<!ELEMENT lexicalEntry (inflectionGroup+)>
+<!ATTLIST lexicalEntry
+	lemma CDATA #REQUIRED
+	grammaticalCategory %grammaticalCategoryValues; #REQUIRED
+	variantOf CDATA #IMPLIED
+	feminineOf CDATA #IMPLIED
+	grammaticalGender %grammaticalGenderValues; #IMPLIED
+>
+<!ELEMENT inflectionGroup (inflection+)>
+<!ELEMENT inflection EMPTY>
+<!ATTLIST inflection
+	orthography CDATA #REQUIRED
+	grammaticalMood %moodValues; #IMPLIED
+	grammaticalTense %tenseValues; #IMPLIED
+	grammaticalPerson %personValues; #IMPLIED
+	grammaticalGender %grammaticalGenderValues; #IMPLIED
+	grammaticalNumber %grammaticalNumberValues; #IMPLIED
+>
